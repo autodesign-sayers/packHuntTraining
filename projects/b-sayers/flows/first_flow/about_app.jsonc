@@ -1,0 +1,7 @@
+{
+    "component": "AboutAppComponent",
+    "config": {
+            "events": [],
+            "link": "Powered by Packhunt.io"
+    }
+}

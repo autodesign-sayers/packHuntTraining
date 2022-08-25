@@ -1,0 +1,7 @@
+{
+    "component": "AppOutletComponent",
+    "config": {
+        "name": "configuration-outlet",
+        "use_new_style_grid": false
+    }
+}

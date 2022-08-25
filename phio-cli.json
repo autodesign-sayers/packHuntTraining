@@ -1,0 +1,10 @@
+{
+  "default": "dev",
+  "environments": {
+    "dev": {
+      "target": "prod",
+      "tag": "wip",
+      "vars": {}
+    }
+  }
+}

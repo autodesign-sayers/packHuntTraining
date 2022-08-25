@@ -1,0 +1,215 @@
+{
+    "component": "ViewerAppComponent",
+    "config": {
+        "name": "viewer",
+        "renderer": {},
+        "scene": {},
+        "controls": [
+            {
+                "type": "orbit",
+                "name": "my-controls",
+                "pan": true
+            }
+        ],
+        "materials": [
+            {
+                "type": "phong",
+                "name": "blue-material",
+                "wireframe": false,
+                "color": {
+                    "type": "rgb",
+                    "rgb": [
+                        50,
+                        102,
+                        153
+                    ]
+                },
+                "opacity": 1,
+                "transparent": false
+            },
+            {
+                "type": "phong",
+                "name": "red-material",
+                "wireframe": false,
+                "color": {
+                    "type": "rgb",
+                    "rgb": [
+                        255,
+                        0,
+                        0
+                    ]
+                },
+                "specular": {
+                    "type": "rgb",
+                    "rgb": [
+                        255,
+                        0,
+                        0
+                    ]
+                },
+                "emissive": {
+                    "type": "rgb",
+                    "rgb": [
+                        255,
+                        0,
+                        0
+                    ]
+                },
+                "opacity": 1,
+                "transparent": false
+            }
+        ],
+        "objects": [
+            {
+                "type": "perspective",
+                "key": "cameras",
+                "controls": "my-controls",
+                "active": true,
+                "layers": [
+                    0
+                ],
+                "far": 5000,
+                "matrix": {
+                    "type": "matrix4",
+                    "array": [
+                        [
+                            1,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            0,
+                            1,
+                            0
+                        ],
+                        [
+                            1000,
+                            1000,
+                            1500,
+                            0
+                        ]
+                    ]
+                }
+            },
+            {
+                "type": "axes",
+                "key": "static",
+                "size": 1000
+            },
+            {
+                "type": "ambientlight",
+                "key": "lights",
+                "layers": [
+                    0
+                ],
+                "intensity": 0.7,
+                "visible": true
+            },
+            {
+                "type": "directionallight",
+                "key": "lights",
+                "layers": [
+                    0
+                ],
+                "matrix": {
+                    "type": "matrix4",
+                    "array": [
+                        [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            300,
+                            400,
+                            200,
+                            0
+                        ]
+                    ]
+                },
+                //"target": [0, 0, 0],
+                "visible": true,
+                "intensity": 0.8,
+                "color": {
+                    "type": "rgb",
+                    "rgb": [
+                        0,
+                        255,
+                        0
+                    ]
+                },
+                "helper": true
+            },
+            {
+                "type": "directionallight",
+                "key": "lights",
+                "layers": [
+                    0
+                ],
+                "matrix": {
+                    "type": "matrix4",
+                    "array": [
+                        [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            -300,
+                            -400,
+                            -200,
+                            0
+                        ]
+                    ]
+                },
+                //"target": [0, 0, 0],
+                "visible": true,
+                "intensity": 0.4,
+                "color": {
+                    "type": "rgb",
+                    "rgb": [
+                        255,
+                        0,
+                        0
+                    ]
+                },
+                "helper": true
+            }
+        ],
+        "editors": []
+    }
+}

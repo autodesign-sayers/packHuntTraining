@@ -1,0 +1,66 @@
+{
+  "latest": 15,
+  "type": "grasshopper",
+  "versions": {
+    "1": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "2": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "3": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "4": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "5": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "6": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "7": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "8": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "9": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "10": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "11": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "12": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "13": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "14": {
+      "is_cachable": false,
+      "is_frozen": false
+    },
+    "15": {
+      "is_cachable": false,
+      "is_frozen": false
+    }
+  }
+}

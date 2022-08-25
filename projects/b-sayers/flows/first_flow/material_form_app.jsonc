@@ -1,0 +1,39 @@
+{
+    "component": "FormApp2Component",
+    "params": {
+        "card": true
+    },
+    "config": {
+        "name": "material-form",
+        "submitMode": "onchange",
+        "form": {
+            "type": "group",
+            "props": {},
+            "value": {
+                "material": {
+                    "type": "dropdown",
+                    "props": {
+                        "value_by": "my_value",
+                        "label_by": "my_label",
+                        "choices": [
+                          {
+                            "my_value": "blue-material",
+                            "my_label": "Blue Material"
+                          },
+                          {
+                            "my_value": "red-material",
+                            "my_label": "Red Material"
+                          }
+                        ],
+                        "text": "Please select the material",
+                        "allow_null": false,
+                        "block": true,
+                        "display": "input",
+                        "readonly": false
+                      },
+                    "value": "blue-material"
+                }
+            }
+        }
+    }
+}

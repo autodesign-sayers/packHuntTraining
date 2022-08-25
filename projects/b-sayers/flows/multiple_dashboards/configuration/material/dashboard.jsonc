@@ -1,0 +1,9 @@
+{
+    "order": [
+        "material_form_app"
+    ],
+    "apps": {
+        "material_form_app": "$TEMPLATE:material_form_app.jsonc"
+        },
+    "layout": {}
+}

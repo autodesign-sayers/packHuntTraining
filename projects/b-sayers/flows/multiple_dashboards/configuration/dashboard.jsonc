@@ -1,0 +1,13 @@
+{
+    "order": [
+        "viewer_app",
+        "outlet_app",
+        "flow_app"
+    ],
+    "apps": {
+        "viewer_app": "$TEMPLATE:viewer_app.jsonc",
+        "outlet_app": "$TEMPLATE:outlet_app.jsonc",
+        "flow_app": "$TEMPLATE:flow_app.jsonc"
+        },
+    "layout": {}
+}

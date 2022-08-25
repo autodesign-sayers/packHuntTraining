@@ -1,0 +1,380 @@
+{
+  "flow": [
+    "main"
+  ],
+  "dashboards": {
+    "main": {
+      "order": [
+        "topnav",
+        "about",
+        "form",
+        "model",
+        "viewer",
+        "state"
+      ],
+      "apps": {
+        "topnav": {
+          "component": "NavAppComponent",
+          "config": {
+            "name": "topnav",
+            "orientation": "horizontal",
+            "nav_style": "secondary",
+            "brand": "Packhunt.io Academy",
+            "nav_items": [
+              {
+                "name": "logout",
+                "type": "button",
+                "options": {
+                  "style": "outline",
+                  "color": "light",
+                  "text": "Logout"
+                }
+              }
+            ],
+            "nav_layout": {
+              "template_areas": [
+                [
+                  "",
+                  "logout"
+                ]
+              ],
+              "template_columns": [
+                "1fr",
+                "100px"
+              ]
+            }
+          }
+        },
+        "about": {
+          "component": "AboutAppComponent",
+          "config": {
+            "link": "Powered by Packhunt.io"
+          }
+        },
+        "form": {
+          "component": "FormApp2Component",
+          "params": {
+            "card": true
+          },
+          "config": {
+            "name": "form",
+            "submitMode": "onchange",
+            "form": {
+              "type": "group",
+              "props": {},
+              "value": {
+                "header-section": {
+                  "type": "section",
+                  "props": {},
+                  "value": {
+                    "header": {
+                      "type": "paragraph",
+                      "props": {
+                        "text": "FormApp",
+                        "type": "lead"
+                      }
+                    }
+                  }
+                },
+                "length-section": {
+                  "type": "section",
+                  "props": {},
+                  "value": {
+                    "length-label": {
+                      "type": "paragraph",
+                      "props": {
+                        "text": "Length"
+                      }
+                    },
+                    "length": {
+                      "type": "numberslider",
+                      "props": {
+                        "min": 100,
+                        "max": 500,
+                        "numericinput": true,
+                        "readonlyinput": true,
+                        "unit": "m"
+                      },
+                      "value": 250
+                    }
+                  }
+                },
+                "width-section": {
+                  "type": "section",
+                  "props": {},
+                  "value": {
+                    "width-label": {
+                      "type": "paragraph",
+                      "props": {
+                        "text": "Width"
+                      }
+                    },
+                    "width": {
+                      "type": "numberslider",
+                      "props": {
+                        "min": 100,
+                        "max": 500,
+                        "numericinput": true,
+                        "readonlyinput": true,
+                        "unit": "m"
+                      },
+                      "value": 250
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "model": {
+          "component": "ModelAppComponent",
+          "config": {
+            "name": "model",
+            "modelId": "$ENV:MODEL:box:LATEST",
+            "mode": "grasshopper"
+          }
+        },
+        "viewer": {
+          "component": "ViewerAppComponent",
+          "config": {
+            "name": "viewer",
+            "renderer": {},
+            "scene": {},
+            "controls": [
+              {
+                "type": "orbit",
+                "name": "my-controls",
+                "pan": true
+              }
+            ],
+            "materials": [
+              {
+                "type": "phong",
+                "name": "blue-material",
+                "wireframe": false,
+                "color": {
+                  "type": "rgb",
+                  "rgb": [
+                    50,
+                    102,
+                    153
+                  ]
+                },
+                "opacity": 0.7,
+                "transparent": true
+              }
+            ],
+            "objects": [
+              {
+                "type": "perspective",
+                "key": "cameras",
+                "controls": "my-controls",
+                "active": true,
+                "layers": [
+                  0
+                ],
+                "far": 5000,
+                "matrix": {
+                  "type": "matrix4",
+                  "array": [
+                    [
+                      1,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      1,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      1000,
+                      1000,
+                      1500,
+                      0
+                    ]
+                  ]
+                }
+              },
+              {
+                "type": "axes",
+                "key": "static",
+                "size": 1000
+              },
+              {
+                "type": "ambientlight",
+                "key": "lights",
+                "layers": [
+                  0
+                ],
+                "intensity": 1.0,
+                "visible": true
+              }
+            ],
+            "editors": []
+          }
+        },
+        "state": {
+          "component": "StateApp2Component",
+          "config": {
+            "selectors": [
+              // Set ModelApp inputs based on values the FormApp inits with
+              {
+                "select": {
+                  "type": "[FormAppModule] Select Form Init Value",
+                  "props": {
+                    "name": "form"
+                  }
+                },
+                "pipe": [
+                  {
+                    "type": "filter",
+                    "props": {
+                      "type": "isDefinedAndNotNull"
+                    }
+                  },
+                  {
+                    "type": "distinctUntilChanged"
+                  }
+                ],
+                "dispatch": {
+                  "type": "[ModelAppModule] Set Model State Value",
+                  "name": "model",
+                  "value": {
+                    "select": {
+                      "type": "$fromEvent"
+                    }
+                  }
+                }
+              },
+              // Set ModelApp inputs based on submitted (edited) FormApp values
+              {
+                "select": {
+                  "type": "[FormAppModule] Select Form Submitted Value",
+                  "props": {
+                    "name": "form"
+                  }
+                },
+                "pipe": [
+                  {
+                    "type": "filter",
+                    "props": {
+                      "type": "isDefinedAndNotNull"
+                    }
+                  },
+                  {
+                    "type": "distinctUntilChanged"
+                  }
+                ],
+                "dispatch": {
+                  "type": "[ModelAppModule] Set Model State Value",
+                  "name": "model",
+                  "value": {
+                    "select": {
+                      "type": "$fromEvent"
+                    }
+                  }
+                }
+              },
+              // Set ViewerApp objects based on ModelApp results
+              {
+                "select": {
+                  "type": "[ModelAppModule] Select Model State Result",
+                  "props": {
+                    "name": "model",
+                    "key": "__DEFAULT__"
+                  }
+                },
+                "pipe": [
+                  {
+                    "type": "filter",
+                    "props": {
+                      "type": "isDefinedAndNotNull"
+                    }
+                  },
+                  {
+                    "type": "distinctUntilChanged"
+                  },
+                  {
+                    "type": "map",
+                    "props": {
+                      "type": "convert",
+                      "props": {
+                        "type": "flatten-tree",
+                        "strict": true,
+                        "simplify": false,
+                        "isMapping": true
+                      }
+                    }
+                  }
+                ],
+                "dispatch": {
+                  "type": "[ViewerAppModule] Import Data Object Map",
+                  "name": "viewer",
+                  "value": {
+                    "select": {
+                      "type": "$fromEvent"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "layout": {
+        "template_areas": [
+          [
+            "topnav",
+            "topnav"
+          ],
+          [
+            "viewer",
+            "form"
+          ],
+          [
+            "viewer",
+            "form"
+          ]
+        ],
+        "template_overlap_areas": [
+          [
+            "",
+            ""
+          ],
+          [
+            "",
+            ""
+          ],
+          [
+            "about",
+            "about"
+          ]
+        ],
+        "template_rows": [
+          "auto",
+          "1fr",
+          "30px"
+        ],
+        "template_columns": [
+          "1fr",
+          "450px"
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "namespace": "NavAppComponent.topnav.logout",
+      "do": "logout"
+    }
+  ]
+}

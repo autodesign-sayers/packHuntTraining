@@ -1,0 +1,265 @@
+{
+    "component": "StateApp2Component",
+    "config": {
+        "selectors": [
+            //init model with default values
+            {
+                "select": {
+                    "type": "[FormAppModule] Select Form Init Value",
+                    "props": {
+                        "name": "dimension-form"
+                    }
+                },
+                "pipe": [
+                    {
+                        "type": "filter",
+                        "props": {
+                            "type": "isDefinedAndNotNull"
+                        }
+                    },
+                    {
+                        "type": "distinctUntilChanged"
+                    }
+                ],
+                "dispatch": {
+                    "type": "[ModelAppModule] Set Model State Value",
+                    "name": "model",
+                    "key": "__DEFAULT__",
+                    "value": {
+                        "width": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "dimension-form",
+                                    "id": "width"
+                                }
+                            }
+                        },
+                        "length": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "dimension-form",
+                                    "id": "length"
+                                }
+                            }
+                        },
+                        "material": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "material-form",
+                                    "id": "material"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            //init model with form values
+            //update on slider changes
+            {
+                "select": {
+                    "type": "[FormAppModule] Select Form Submitted Value",
+                    "props": {
+                      "name": "dimension-form"
+                    }
+                  },
+                "pipe": [
+                    {
+                        "type": "filter",
+                        "props": {
+                            "type": "isDefinedAndNotNull"
+                        }
+                    },
+                    {
+                        "type": "distinctUntilChanged"
+                    }
+                ],
+                "dispatch": {
+                    "type": "[ModelAppModule] Set Model State Value",
+                    "name": "model",
+                    "key": "__DEFAULT__",
+                    "value": {
+                        "width": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "dimension-form",
+                                    "id": "width"
+                                }
+                            }
+                        },
+                        "length": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "dimension-form",
+                                    "id": "length"
+                                }
+                            }
+                        },
+                        "material": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "material-form",
+                                    "id": "material"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            //update from material form change
+            {
+                "select": {
+                    "type": "[FormAppModule] Select Form Submitted Value",
+                    "props": {
+                      "name": "material-form"
+                    }
+                  },
+                "pipe": [
+                    {
+                        "type": "filter",
+                        "props": {
+                            "type": "isDefinedAndNotNull"
+                        }
+                    },
+                    {
+                        "type": "distinctUntilChanged"
+                    }
+                ],
+                "dispatch": {
+                    "type": "[ModelAppModule] Set Model State Value",
+                    "name": "model",
+                    "key": "__DEFAULT__",
+                    "value": {
+                        "width": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "dimension-form",
+                                    "id": "width"
+                                }
+                            }
+                        },
+                        "length": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "dimension-form",
+                                    "id": "length"
+                                }
+                            }
+                        },
+                        "material": {
+                            "select": {
+                                "type": "[FormAppModule] Form Value",
+                                "props": {
+                                    "name": "material-form",
+                                    "id": "material"
+                                }
+                            }
+                        }
+                    }
+                }
+            },    
+            //draw geometry into viewer
+            {
+                "select": {
+                    "type": "[ModelAppModule] Select Model State Result",
+                    "props": {
+                        "name": "model",
+                        "key": "__DEFAULT__"
+                    }
+                },
+                "pipe": [
+                    {
+                        "type": "filter",
+                        "props": {
+                            "type": "isDefinedAndNotNull"
+                        }
+                    },
+                    {
+                        "type": "distinctUntilChanged"
+                    },
+                    {
+                        "type": "map",
+                        "props": {
+                            "type": "convert",
+                            "props": {
+                                "type": "flatten-tree",
+                                "strict": true,
+                                "simplify": false,
+                                "isMapping": true
+                            }
+                        }
+                    }
+                ],
+                "dispatch": {
+                    "type": "[ViewerAppModule] Import Data Object Map",
+                    "name": "viewer",
+                    "value": {
+                        "select": {
+                            "type": "$fromEvent"
+                        }
+                    }
+                }
+            },
+            {
+                "select": {
+                    "type": "[ModelAppModule] Select Model State Result",
+                    "props": {
+                        "name": "model",
+                        "key": "__DEFAULT__"
+                    }
+                },
+                "pipe": [
+                    {
+                        "type": "filter",
+                        "props": {
+                            "type": "isDefinedAndNotNull"
+                        }
+                    },
+                    {
+                        "type": "distinctUntilChanged"
+                    },
+                    {
+                        "type": "map",
+                        "props": {
+                            "type": "convert",
+                            "props": {
+                                "type": "flatten-tree",
+                                "strict": true,
+                                "simplify": true,
+                                "isMapping": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "map",
+                        "props": {
+                            "type": "pluck",
+                            "props": {
+                                "path": ["volume-output", 0]
+                            }
+                        }
+                    }
+                ],
+                "dispatch": {
+                    "type": "[FormAppModule] Patch Form",
+                    "name": "results-form",
+                    "value": {
+                        "volume-output": {
+                            "select": {
+                                "type": "$fromEvent"
+                            }
+                        }
+                        
+                    }
+                  }
+            }
+        ]
+    }
+}

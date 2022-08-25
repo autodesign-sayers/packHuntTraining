@@ -1,0 +1,14 @@
+{
+    "component": "FlowAppComponent",
+    "config": {
+        "outlet": "main-outlet",
+        "flow": [
+            "configuration-dashboard"
+        ],
+        "dashboards": {
+            "configuration-dashboard": "$TEMPLATE:configuration/dashboard.jsonc"
+        },
+        "events": []
+    }
+}
+

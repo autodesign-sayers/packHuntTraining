@@ -1,0 +1,50 @@
+{
+    "slug": "costain-sayers-group",
+    "memberships": [
+      "benjamin_dot_sayers_at_costain_dot_com",
+      "reiji_dot_nagaoka_at_costain_dot_com",
+      "joseph_dot_kearney_at_costain_dot_com"
+    ],
+    "org": {
+      "slug": "pha-beginner-training-org",
+      "perms": [
+        "list-users",
+        "view-groups",
+        "share-organization",
+        "view-organization",
+        "add-project",
+        "manage-groups"
+      ],
+      "projects": {
+        "pha-beginner-training-org": {
+          "perms": [
+            "view-project",
+            "change-project",
+            "share-project",
+            "add-graph",
+            "view-graph",
+            "run-graph",
+            "add-resourcetype",
+            "add-flow",
+            "add-private-asset",
+            "view-private-asset",
+            "share-private-asset"
+          ],
+          "resourcetypes": {},
+          "datasources": {},
+          "flows": {
+            "multiple_dashboards": [
+              "view",
+              "share",
+              "change"
+            ],
+            "first_flow": [
+              "view",
+              "share",
+              "change"
+            ]
+          }
+        }
+      }
+    }
+  }

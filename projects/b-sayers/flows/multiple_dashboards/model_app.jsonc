@@ -1,0 +1,9 @@
+{
+    "component": "ModelAppComponent",
+    "config": {
+        "name": "model",
+        "modelId": "$ENV:MODEL:box-test-2:LATEST",
+        "mode": "grasshopper",
+        "behaviours": {}
+    }
+  }

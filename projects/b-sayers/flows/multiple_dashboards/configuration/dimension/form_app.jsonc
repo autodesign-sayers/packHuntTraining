@@ -1,0 +1,54 @@
+{
+    "component": "FormApp2Component",
+    "params": {
+        "card": true
+    },
+    "config": {
+        "name": "dimension-form",
+        "submitMode": "onchange",
+        "form": {
+            "type": "group",
+            "props": {},
+            "value": {
+                "length": {
+                    "type": "numberslider",
+                    "props": {
+                        "min": 100,
+                        "max": 500,
+                        "numericinput": true,
+                        "readonlyinput": false,
+                        "unit": "m"
+                    },
+                    "value": 250
+                },
+                "width": {
+                    "type": "numberslider",
+                    "props": {
+                        "min": 100,
+                        "max": 500,
+                        "numericinput": true,
+                        "readonlyinput": true,
+                        "unit": "m"
+                    },
+                    "value": 250
+                },
+                "button": {
+                    "type": "button",
+                    "props": {
+                        "text": "My awesome paragraph",
+                        "lines": [],
+                        "type": "display-2",
+                        "align": "left",
+                        "transform": "capitalize",
+                        "weight": "normal",
+                        "justify": true,
+                        "color": "dark",
+                        "truncate": false,
+                        "display": "default"
+                      }
+                      
+                }
+            }
+        }
+    }
+}

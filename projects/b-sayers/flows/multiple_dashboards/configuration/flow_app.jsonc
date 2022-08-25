@@ -1,0 +1,22 @@
+{
+    "component": "FlowAppComponent",
+    "config": {
+        "name": "configuration_flow",
+        "outlet": "configuration-outlet",
+        "flow": [
+            "dimension_dashboard",
+            "material_dashboard"
+        ],
+        "dashboards": {
+            "dimension_dashboard": "$TEMPLATE:dimension/dashboard.jsonc",
+            "material_dashboard": "$TEMPLATE:material/dashboard.jsonc"
+        },
+        "events": [
+            {
+                "namespace": "AppStoreModule.legacy.configuration_flow_go_to",
+                "do": "go",
+                "config": {}
+            }
+        ]
+    }
+}

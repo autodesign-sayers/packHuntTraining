@@ -1,0 +1,9 @@
+{
+    "flow": [
+        "my-dashboard"
+    ],
+    "dashboards": {
+        "my-dashboard": "$TEMPLATE:multiple_dashboards/dashboard.jsonc"
+    },
+    "events": []
+}

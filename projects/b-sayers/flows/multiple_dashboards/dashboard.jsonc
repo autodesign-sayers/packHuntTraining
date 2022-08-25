@@ -1,0 +1,26 @@
+{
+    "order": [
+        "model_app",
+        "outlet_app",
+        "flow_app",
+        "state_app"
+    ],
+
+    "apps": {
+        "model_app": "$TEMPLATE:model_app.jsonc",
+        "flow_app": "$TEMPLATE:flow_app.jsonc",
+        "outlet_app": "$TEMPLATE:outlet_app.jsonc",
+        "state_app": "$TEMPLATE:state_app.jsonc"
+    },
+
+    "layout": {
+        "template_areas": [
+            [
+                "outlet_app"
+            ]
+        ],
+        "template_rows": [
+            "1fr"
+        ]
+    }
+}

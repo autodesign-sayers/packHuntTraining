@@ -1,0 +1,56 @@
+{
+    "flow": [
+        "my-dashboard"
+    ],
+    "dashboards": {
+        "my-dashboard": {
+            "order": [
+                "about_app",
+                "form_app",
+                "material_form_app",
+                "results_form_app",
+                "viewer_app",
+                "model_app",
+                "state_app"
+            ],
+            "apps": {
+                //use $TEMPLATE if in same folder
+                //use $REF if in different folder location
+                "about_app": "$TEMPLATE:first_flow/about_app.jsonc",
+                "form_app": "$TEMPLATE:first_flow/form_app.jsonc",
+                "material_form_app": "$TEMPLATE:first_flow/material_form_app.jsonc",
+                "results_form_app": "$TEMPLATE:first_flow/results_form_app.jsonc",
+                "viewer_app": "$TEMPLATE:first_flow/viewer_app.jsonc",
+                "model_app": "$TEMPLATE:first_flow/model_app.jsonc",
+                "state_app": "$TEMPLATE:first_flow/state_app.jsonc"
+            },
+            "layout": {
+                "template_areas": [
+                    [
+                        
+                        "material_form_app", "viewer_app", "form_app"
+                    ],
+                    [
+                        "material_form_app","viewer_app", "form_app"
+                    ]
+                ],
+                "template_overlap_areas": [
+                    [
+                        
+                        "", "", ""
+                    ],
+                    [
+                        "about_app", "results_form_app", ""
+                    ]
+                ],
+                "template_rows": [
+                    "1fr", "30px"
+                ],
+                "template_columns": [
+                    "200px", "1fr", "300px"
+                ]
+            }
+        }
+    },
+    "events": []
+}

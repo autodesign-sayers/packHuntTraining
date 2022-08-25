@@ -1,0 +1,28 @@
+{
+  "component": "FormApp2Component",
+  "params": {
+    "card": false
+  },
+  "config": {
+    "name": "results-form",
+    "submitMode": "onchange",
+    "form": {
+      "type": "group",
+      "props": {},
+      "value": {
+        "volume-output": { //matches name inside gh output
+          "type": "input",
+          "props": {
+            "type": "text",
+            "prepend": ["Volume: "],
+            "append": ["m3"]
+          },
+          "value": "-",
+          "validator": {
+            "required": true
+          }
+        }
+      }
+    }
+  }
+}
